@@ -1,0 +1,423 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshat Nigam - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes text-slide-up {
+            0%, 25% { transform: translateY(0); }
+            33%, 58% { transform: translateY(-25%); }
+            66%, 91% { transform: translateY(-50%); }
+            100% { transform: translateY(-75%); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-neutral-800 selection:text-white min-h-screen flex flex-col items-center text-neutral-200 font-sans bg-[#050505] pb-24 relative">
+
+    <!-- Blinking Dots Canvas Background -->
+    <div class="fixed inset-0 w-full h-screen pointer-events-none z-0 [mask-image:radial-gradient(100%_100%_at_50%_0%,black_10%,transparent_100%)] -webkit-[mask-image:radial-gradient(100%_100%_at_50%_0%,black_10%,transparent_100%)]">
+        <canvas id="grid-canvas" class="w-full h-full"></canvas>
+    </div>
+
+    <!-- Floating Top Nav -->
+    <nav class="fixed top-8 z-50 flex items-center gap-10 px-8 py-4 bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 shadow-2xl rounded-full">
+        <a href="#" aria-label="Home" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            <i data-lucide="home" class="w-5 h-5"></i>
+        </a>
+        <a href="#projects" aria-label="Projects" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            <i data-lucide="code" class="w-5 h-5"></i>
+        </a>
+        <a href="#contact" aria-label="Contact" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+        </a>
+        <button aria-label="Toggle Theme" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            <i data-lucide="sun" class="w-5 h-5"></i>
+        </button>
+    </nav>
+
+    <main class="z-10 flex flex-col gap-20 w-full max-w-[700px] mt-36 pr-5 pl-5 relative gap-x-20 gap-y-20">
+        
+        <!-- Header & Bio Section -->
+        <section class="flex flex-col gap-8">
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+                <div class="flex items-center gap-6">
+                    <!-- Avatar -->
+                    <div class="w-24 h-24 rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-md flex-shrink-0 shadow-xl">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Akshat&amp;backgroundColor=050505" alt="Akshat Nigam" class="w-full h-full object-cover filter grayscale">
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <h1 class="text-4xl font-medium tracking-tight text-white flex items-center gap-2">
+                            Akshat Nigam
+                            <i data-lucide="badge-check" class="w-7 h-7 text-blue-500 fill-blue-500/10"></i>
+                        </h1>
+                        <p class="text-2xl text-neutral-400 mt-1 font-normal">
+                            <span class="inline-flex flex-col h-8 overflow-hidden align-top">
+                                <span class="flex flex-col" style="animation: text-slide-up 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;">
+                                    <span class="h-8 flex items-center">SOC Analyst</span>
+                                    <span class="h-8 flex items-center">Cyber Security</span>
+                                    <span class="h-8 flex items-center">DevSecOps</span>
+                                    <span class="h-8 flex items-center">SOC Analyst</span>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start w-full sm:w-auto gap-5 sm:mt-2">
+                    <button class="flex items-center gap-2 px-4 py-2 text-base font-normal border border-white/10 bg-white/[0.03] backdrop-blur-md rounded-full hover:bg-white/[0.08] transition-colors text-white shadow-lg">
+                        <i data-lucide="eye" class="w-4 h-4"></i>
+                        Alias
+                    </button>
+                    <div class="flex items-center gap-5 text-neutral-400">
+                        <a href="#" class="hover:text-white transition-colors flex items-center"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg></a>
+                        <a href="#" class="hover:text-white transition-colors flex items-center"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                        <a href="#" class="hover:text-white transition-colors flex items-center"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-5 text-neutral-400 text-2xl leading-relaxed font-normal">
+                <p class="">Hey, I'm Akshat, a full-stack developer who enjoys building clean, modern websites and applications where design, functionality, and attention to detail really matter. I focus on creating products that are both practical and visually pleasing.</p>
+                <p>I'm flexible with tech stacks and comfortable adapting to what a project needs, though I enjoy working with modern frameworks and tools. I'm always open to learning, improving, and taking on new challenges.</p>
+            </div>
+        </section>
+
+        <!-- Contribution Graph -->
+        <section class="flex flex-col gap-3 w-full overflow-hidden">
+            <div class="flex justify-between text-base text-neutral-500 px-1 font-normal">
+                <span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span>
+            </div>
+            
+            <div class="flex gap-[3px] overflow-x-auto pb-2 scrollbar-hide" id="contribution-grid-container">
+                <div class="flex gap-[3px]" id="contribution-grid"></div>
+            </div>
+
+            <div class="flex items-center justify-between text-base text-neutral-500 mt-1 font-normal">
+                <span>514 contributions in the last year</span>
+                <div class="flex items-center gap-2">
+                    <span>Less</span>
+                    <div class="w-3.5 h-3.5 bg-white/[0.03] border border-white/5 rounded-[3px]"></div>
+                    <div class="w-3.5 h-3.5 bg-neutral-800 rounded-[3px]"></div>
+                    <div class="w-3.5 h-3.5 bg-neutral-600 rounded-[3px]"></div>
+                    <div class="w-3.5 h-3.5 bg-neutral-400 rounded-[3px]"></div>
+                    <div class="w-3.5 h-3.5 bg-neutral-200 rounded-[3px]"></div>
+                    <span>More</span>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-white/10">
+
+        <!-- Projects Section -->
+        <section id="projects" class="flex flex-col gap-6">
+            <h2 class="text-3xl font-medium tracking-tight text-white flex items-center gap-3 mb-2">
+                <i data-lucide="folder" class="w-7 h-7 text-neutral-400"></i>
+                Projects
+            </h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+                
+                <a href="#" class="group flex flex-col gap-4 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/[0.04] hover:border-white/20 transition-all duration-300 sm:col-span-2">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-normal text-white group-hover:text-neutral-200 transition-colors">Cloud-based system-health &amp; Misconfiguration Analyzer</h3>
+                        <i data-lucide="arrow-up-right" class="w-6 h-6 text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                    <p class="text-lg text-neutral-400 leading-relaxed font-normal">Automated detection and remediation of misconfigurations across AWS, Azure, and GCP, enhancing compliance. Designed a scalable microservices architecture with real-time scanning and actionable reporting.</p>
+                </a>
+                
+                <a href="#" class="group flex flex-col gap-4 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/[0.04] hover:border-white/20 transition-all duration-300">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-normal text-white group-hover:text-neutral-200 transition-colors">Reconnaissance framework</h3>
+                        <i data-lucide="arrow-up-right" class="w-6 h-6 text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                    <p class="text-lg text-neutral-400 leading-relaxed font-normal">OSINT metadata extraction platform using Python and REST APIs for major social networks to visualize digital footprints and support ethical investigations.</p>
+                </a>
+
+                <a href="#" class="group flex flex-col gap-4 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/[0.04] hover:border-white/20 transition-all duration-300">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-normal text-white group-hover:text-neutral-200 transition-colors">Lightweight image encryptor</h3>
+                        <i data-lucide="arrow-up-right" class="w-6 h-6 text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                    <p class="text-lg text-neutral-400 leading-relaxed font-normal">Secure image encryption tool supporting naïve encryption over SMTP/POP3, optimized for low-end systems achieving sub-2s processing time per image.</p>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="flex flex-col gap-6">
+            <h2 class="text-3xl font-medium tracking-tight text-white flex items-center gap-3 mb-2">
+                <i data-lucide="briefcase" class="w-7 h-7 text-neutral-400"></i>
+                Experience
+            </h2>
+            
+            <div class="flex flex-col mt-2">
+                <!-- ISRO Item -->
+                <div class="flex gap-6 group">
+                    <div class="relative flex flex-col items-center pt-2">
+                        <div class="w-3 h-3 bg-neutral-400 rounded-full z-10 ring-4 ring-[#050505] outline outline-1 outline-white/10"></div>
+                        <div class="absolute top-6 bottom-[-16px] w-px bg-white/10"></div>
+                    </div>
+                    <div class="flex-1 pb-12">
+                        <div class="flex flex-col gap-5 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/[0.04] transition-colors">
+                            <div class="flex flex-col gap-1.5">
+                                <h3 class="text-xl font-normal text-white tracking-tight">Summer Intern (On-site)</h3>
+                                <p class="text-lg font-normal text-neutral-400">@ Indian Space Research Organisation (ISRO)</p>
+                            </div>
+                            
+                            <ul class="flex flex-col gap-4 text-lg text-neutral-400 mt-2 font-normal">
+                                <li class="flex items-start gap-3">
+                                    <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-neutral-600 flex-shrink-0"></span>
+                                    <span class="leading-relaxed">Tuned and managed SIEM alerts using ELK Stack, reducing false positives by 30% and alerting fatigue by 40%.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-neutral-600 flex-shrink-0"></span>
+                                    <span class="leading-relaxed">Automated log parsing of 1,000+ logs daily using Python, improving threat detection by 20%.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-neutral-600 flex-shrink-0"></span>
+                                    <span class="leading-relaxed">Configured centralised logging with Elasticsearch over 50+ endpoints across on-prem infrastructure.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RSAC Item -->
+                <div class="flex gap-6 group">
+                    <div class="relative flex flex-col items-center pt-2">
+                        <div class="w-3 h-3 bg-neutral-400 rounded-full z-10 ring-4 ring-[#050505] outline outline-1 outline-white/10"></div>
+                    </div>
+                    <div class="flex-1 pb-0">
+                        <div class="flex flex-col gap-5 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/[0.04] transition-colors">
+                            <div class="flex flex-col gap-1.5">
+                                <h3 class="text-xl font-normal text-white tracking-tight">Summer Intern (On-site)</h3>
+                                <p class="text-lg font-normal text-neutral-400">@ Remote Sensing Application Centre (RSAC)</p>
+                            </div>
+                            
+                            <ul class="flex flex-col gap-4 text-lg text-neutral-400 mt-2 font-normal">
+                                <li class="flex items-start gap-3">
+                                    <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-neutral-600 flex-shrink-0"></span>
+                                    <span class="leading-relaxed">Conducted full lifecycle penetration tests on enterprise infra using security automation tools.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-neutral-600 flex-shrink-0"></span>
+                                    <span class="leading-relaxed">Simulated advanced threats and discovered 3 high-risk vulnerabilities, directly informing remediation.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-neutral-600 flex-shrink-0"></span>
+                                    <span class="leading-relaxed">Delivered internal cybersecurity workshops, reducing phishing incidents among 50+ staff.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="flex flex-col gap-6">
+            <h2 class="text-3xl font-medium tracking-tight text-white flex items-center gap-3 mb-2">
+                <i data-lucide="graduation-cap" class="w-7 h-7 text-neutral-400"></i>
+                Education
+            </h2>
+            <div class="flex flex-col gap-2 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/[0.04] transition-colors">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-2">
+                    <h3 class="text-xl font-normal text-white tracking-tight">Bachelor of Technology in Computer Science and Engineering</h3>
+                    <span class="inline-flex items-center px-3 py-1.5 text-base font-normal bg-white/[0.05] text-neutral-300 rounded-lg border border-white/10">CGPA: 7.86/10</span>
+                </div>
+                <p class="text-lg text-neutral-400 mt-2 font-normal">University of Petroleum and Energy Studies (UPES)</p>
+                <p class="text-lg text-neutral-500 font-normal">Major in Cybersecurity and Forensics</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="flex flex-col gap-6">
+            <h2 class="text-3xl font-medium tracking-tight text-white flex items-center gap-3 mb-2">
+                <i data-lucide="cpu" class="w-7 h-7 text-neutral-400"></i>
+                Skills
+            </h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+                
+                <div class="flex flex-col gap-5 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg">
+                    <h3 class="text-base font-normal text-neutral-500 flex items-center gap-2 uppercase tracking-wider">
+                        Security Operations
+                    </h3>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="activity" class="w-4 h-4 text-neutral-500"></i>Splunk</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="layers" class="w-4 h-4 text-neutral-500"></i>ELK Stack</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="shield-alert" class="w-4 h-4 text-neutral-500"></i>Wazuh XDR</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-5 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg">
+                    <h3 class="text-base font-normal text-neutral-500 flex items-center gap-2 uppercase tracking-wider">
+                        OS &amp; Admin
+                    </h3>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="terminal-square" class="w-4 h-4 text-neutral-500"></i>Linux</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="layout-template" class="w-4 h-4 text-neutral-500"></i>Windows</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="network" class="w-4 h-4 text-neutral-500"></i>Networking</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-5 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg">
+                    <h3 class="text-base font-normal text-neutral-500 flex items-center gap-2 uppercase tracking-wider">
+                        Network Monitoring
+                    </h3>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="shield-check" class="w-4 h-4 text-neutral-500"></i>Suricata IDS/IPS</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="globe" class="w-4 h-4 text-neutral-500"></i>DNS Config</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="shield" class="w-4 h-4 text-neutral-500"></i>Firewall</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-5 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg">
+                    <h3 class="text-base font-normal text-neutral-500 flex items-center gap-2 uppercase tracking-wider">
+                        Programming
+                    </h3>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="file-code" class="w-4 h-4 text-neutral-500"></i>Python</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="monitor" class="w-4 h-4 text-neutral-500"></i>Bash</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="database" class="w-4 h-4 text-neutral-500"></i>SQL</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="terminal-square" class="w-4 h-4 text-neutral-500"></i>PowerShell</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-5 p-7 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg sm:col-span-2">
+                    <h3 class="text-base font-normal text-neutral-500 flex items-center gap-2 uppercase tracking-wider">
+                        Soft Skills
+                    </h3>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="refresh-cw" class="w-4 h-4 text-neutral-500"></i>Adaptability</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="lightbulb" class="w-4 h-4 text-neutral-500"></i>Creativity</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 text-base font-normal border border-white/10 bg-white/[0.04] rounded-lg text-neutral-300"><i data-lucide="users" class="w-4 h-4 text-neutral-500"></i>Team Collaboration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-white/10 mt-4">
+
+        <!-- Contact Section -->
+        <section id="contact" class="flex flex-col gap-6">
+            <h2 class="text-3xl font-medium tracking-tight text-white flex items-center gap-3 mb-2">
+                <i data-lucide="message-square" class="w-7 h-7 text-neutral-400"></i>
+                Get in touch
+            </h2>
+            <form class="flex flex-col gap-6 mt-2">
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-2.5">
+                        <label class="text-lg font-normal text-neutral-400 ml-1">Name</label>
+                        <input type="text" class="w-full bg-white/[0.02] border border-white/10 shadow-lg rounded-xl px-5 py-3.5 text-xl text-white focus:outline-none focus:border-white/20 focus:bg-white/[0.04] transition-all placeholder:text-neutral-600 font-normal" placeholder="John Doe">
+                    </div>
+                    <div class="flex flex-col gap-2.5">
+                        <label class="text-lg font-normal text-neutral-400 ml-1">Email</label>
+                        <input type="email" class="w-full bg-white/[0.02] border border-white/10 shadow-lg rounded-xl px-5 py-3.5 text-xl text-white focus:outline-none focus:border-white/20 focus:bg-white/[0.04] transition-all placeholder:text-neutral-600 font-normal" placeholder="john@example.com">
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2.5">
+                    <label class="text-lg font-normal text-neutral-400 ml-1">Message</label>
+                    <textarea rows="5" class="w-full bg-white/[0.02] border border-white/10 shadow-lg rounded-xl px-5 py-3.5 text-xl text-white focus:outline-none focus:border-white/20 focus:bg-white/[0.04] transition-all placeholder:text-neutral-600 resize-none font-normal" placeholder="How can I help you?"></textarea>
+                </div>
+                <button type="button" class="mt-4 self-start px-7 py-3.5 bg-white text-black font-medium rounded-xl hover:bg-neutral-200 transition-colors flex items-center gap-2.5 shadow-[0_4px_20px_rgba(255,255,255,0.15)] text-lg">
+                    Send Message
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons({
+            attrs: {
+                'stroke-width': 1.5
+            }
+        });
+
+        // Generate mock contribution graph
+        const gridContainer = document.getElementById('contribution-grid');
+        const colors = [
+            'bg-white/[0.02] border border-white/5', 
+            'bg-white/[0.02] border border-white/5',
+            'bg-white/[0.02] border border-white/5',
+            'bg-neutral-800', 
+            'bg-neutral-600', 
+            'bg-neutral-400', 
+            'bg-neutral-200'  
+        ];
+        
+        let gridHTML = '';
+        for (let col = 0; col < 52; col++) {
+            gridHTML += `<div class="grid grid-rows-7 gap-[3px]">`;
+            for (let row = 0; row < 7; row++) {
+                const rand = Math.random();
+                let colorIdx = 0;
+                if (rand > 0.6) colorIdx = 3;
+                if (rand > 0.8) colorIdx = 4;
+                if (rand > 0.9) colorIdx = 5;
+                if (rand > 0.95) colorIdx = 6;
+                
+                gridHTML += `<div class="w-[11px] h-[11px] ${colors[colorIdx]} rounded-[2px]"></div>`;
+            }
+            gridHTML += `</div>`;
+        }
+        gridContainer.innerHTML = gridHTML;
+
+        // Header Canvas Animation (Smooth Twinkling Dots)
+        const canvas = document.getElementById('grid-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+
+        const cellSize = 45; 
+        const dots = [];
+
+        function initCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            
+            dots.length = 0;
+            const cols = Math.ceil(width / cellSize) + 2;
+            const rows = Math.ceil(height / cellSize) + 2;
+
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    dots.push({
+                        x: i * cellSize,
+                        y: j * cellSize,
+                        opacity: 0.03 + Math.random() * 0.05, 
+                        targetOpacity: 0.03,
+                        speed: 0.002,
+                        baseOpacity: 0.03
+                    });
+                }
+            }
+        }
+
+        function drawDots() {
+            ctx.clearRect(0, 0, width, height);
+
+            dots.forEach(dot => {
+                if (Math.abs(dot.opacity - dot.targetOpacity) < 0.01) {
+                    if (Math.random() > 0.99) { // 1% chance to glow softly
+                        dot.targetOpacity = 0.3 + Math.random() * 0.4; 
+                        dot.speed = 0.01 + Math.random() * 0.02; 
+                    } else {
+                        dot.targetOpacity = dot.baseOpacity + Math.random() * 0.02; 
+                        dot.speed = 0.002 + Math.random() * 0.003; 
+                    }
+                }
+
+                if (dot.opacity < dot.targetOpacity) dot.opacity += dot.speed;
+                else dot.opacity -= dot.speed;</script></body></html>
