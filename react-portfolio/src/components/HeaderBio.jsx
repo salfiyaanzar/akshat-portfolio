@@ -40,7 +40,9 @@ export default function HeaderBio() {
 
         <div className="absolute bottom-0 right-0 flex items-center gap-5 text-neutral-600 dark:text-neutral-400">
             <a
-              href="#"
+              href="https://github.com/AkshatNigam12"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-neutral-900 dark:hover:text-white transition-colors flex items-center"
               aria-label="GitHub"
             >
@@ -53,7 +55,9 @@ export default function HeaderBio() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://x.com/akshat8412"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-neutral-900 dark:hover:text-white transition-colors flex items-center"
               aria-label="X"
             >
@@ -66,7 +70,9 @@ export default function HeaderBio() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/akshatnigam84/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-neutral-900 dark:hover:text-white transition-colors flex items-center"
               aria-label="LinkedIn"
             >
