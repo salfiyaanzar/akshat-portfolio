@@ -1,26 +1,26 @@
-import { BadgeCheck, Eye } from 'lucide-react'
+import { BadgeCheck } from 'lucide-react'
 
 export default function HeaderBio() {
   return (
-    <section className="flex flex-col gap-8">
-      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
-        <div className="flex items-center gap-6">
-          <div className="w-24 h-24 rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-md flex-shrink-0 shadow-xl">
+    <section className="flex flex-col gap-6">
+      <div className="flex flex-col gap-5 relative">
+        <div className="flex items-center gap-5">
+          <div className="w-20 h-20 rounded-xl overflow-hidden border-2 border-neutral-800 dark:border-black bg-neutral-100 dark:bg-white/[0.03] backdrop-blur-md flex-shrink-0 shadow-[0_0_12px_rgba(0,0,0,0.08)] dark:shadow-[0_0_12px_rgba(255,253,248,0.2)] transition-transform duration-200 ease-out hover:rotate-6">
             <img
-              src="https://api.dicebear.com/7.x/notionists/svg?seed=Akshat&backgroundColor=050505"
+              src="/avatar.png"
               alt="Akshat Nigam"
-              className="w-full h-full object-cover filter grayscale"
+              className="w-full h-full object-cover object-top"
             />
           </div>
 
           <div className="flex flex-col justify-center">
-            <h1 className="text-4xl font-medium tracking-tight text-white flex items-center gap-2">
+            <h1 className="text-3xl font-medium tracking-tight text-neutral-900 dark:text-white flex items-center gap-2">
               Akshat Nigam
-              <BadgeCheck className="w-7 h-7 text-blue-500" strokeWidth={1.5} />
+              <BadgeCheck className="w-6 h-6 text-blue-500" strokeWidth={1.5} />
             </h1>
 
-            <p className="text-2xl text-neutral-400 mt-1 font-normal">
-              <span className="inline-flex flex-col h-8 overflow-hidden align-top">
+            <p className="text-base text-neutral-600 dark:text-neutral-400 mt-1 font-normal">
+              <span className="inline-flex flex-col h-6 overflow-hidden align-top">
                 <span
                   className="flex flex-col"
                   style={{
@@ -28,26 +28,20 @@ export default function HeaderBio() {
                       'text-slide-up 6s cubic-bezier(0.4, 0, 0.2, 1) infinite',
                   }}
                 >
-                  <span className="h-8 flex items-center">SOC Analyst</span>
-                  <span className="h-8 flex items-center">Cyber Security</span>
-                  <span className="h-8 flex items-center">DevSecOps</span>
-                  <span className="h-8 flex items-center">SOC Analyst</span>
+                  <span className="h-6 flex items-center">SOC Analyst</span>
+                  <span className="h-6 flex items-center">Cyber Security</span>
+                  <span className="h-6 flex items-center">DevSecOps</span>
+                  <span className="h-6 flex items-center">SOC Analyst</span>
                 </span>
               </span>
             </p>
           </div>
         </div>
 
-        <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start w-full sm:w-auto gap-5 sm:mt-2">
-          <button className="flex items-center gap-2 px-4 py-2 text-base font-normal border border-white/10 bg-white/[0.03] backdrop-blur-md rounded-full hover:bg-white/[0.08] transition-colors text-white shadow-lg">
-            <Eye className="w-4 h-4" strokeWidth={1.5} />
-            Alias
-          </button>
-
-          <div className="flex items-center gap-5 text-neutral-400">
+        <div className="absolute bottom-0 right-0 flex items-center gap-5 text-neutral-600 dark:text-neutral-400">
             <a
               href="#"
-              className="hover:text-white transition-colors flex items-center"
+              className="hover:text-neutral-900 dark:hover:text-white transition-colors flex items-center"
               aria-label="GitHub"
             >
               <svg
@@ -60,7 +54,7 @@ export default function HeaderBio() {
             </a>
             <a
               href="#"
-              className="hover:text-white transition-colors flex items-center"
+              className="hover:text-neutral-900 dark:hover:text-white transition-colors flex items-center"
               aria-label="X"
             >
               <svg
@@ -73,7 +67,7 @@ export default function HeaderBio() {
             </a>
             <a
               href="#"
-              className="hover:text-white transition-colors flex items-center"
+              className="hover:text-neutral-900 dark:hover:text-white transition-colors flex items-center"
               aria-label="LinkedIn"
             >
               <svg
@@ -84,22 +78,15 @@ export default function HeaderBio() {
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
             </a>
-          </div>
         </div>
       </div>
 
-      <div className="flex flex-col gap-5 text-neutral-400 text-2xl leading-relaxed font-normal">
+      <div className="flex flex-col gap-4 text-neutral-600 dark:text-neutral-400 text-[1.05rem] leading-normal font-normal">
         <p>
-          Hey, I'm Akshat, a full-stack developer who enjoys building clean,
-          modern websites and applications where design, functionality, and
-          attention to detail really matter. I focus on creating products that
-          are both practical and visually pleasing.
+        Hey, I'm Akshat, a cybersecurity analyst who enjoys securing systems, analyzing threats, and building resilient infrastructures where reliability, protection, and detail matter strongly. I focus on vulnerabilities and building solutions that are practical and secure.
         </p>
         <p>
-          I'm flexible with tech stacks and comfortable adapting to what a
-          project needs, though I enjoy working with modern frameworks and
-          tools. I'm always open to learning, improving, and taking on new
-          challenges.
+        I'm flexible with tools and comfortable adapting to different environments, though I enjoy working with modern security platforms and automation tools new. I'm always open to learning, improving, and taking on new challenges.
         </p>
       </div>
     </section>

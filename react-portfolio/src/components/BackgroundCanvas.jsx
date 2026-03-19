@@ -1,8 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useTheme } from '../context/ThemeContext.jsx'
 
 export default function BackgroundCanvas() {
   const canvasRef = useRef(null)
   const rafRef = useRef(null)
+  const [scrollOpacity, setScrollOpacity] = useState(0)
+  const { theme } = useTheme()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -14,8 +17,9 @@ export default function BackgroundCanvas() {
     let width = 0
     let height = 0
 
-    const cellSize = 45
-    const dots = []
+    const cellSize = 16
+    const squareSize = 5
+    const squares = []
 
     const initCanvas = () => {
       width = window.innerWidth
@@ -23,52 +27,54 @@ export default function BackgroundCanvas() {
       canvas.width = width
       canvas.height = height
 
-      dots.length = 0
+      squares.length = 0
       const cols = Math.ceil(width / cellSize) + 2
       const rows = Math.ceil(height / cellSize) + 2
 
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
-          dots.push({
+          squares.push({
             x: i * cellSize,
             y: j * cellSize,
-            opacity: 0.03 + Math.random() * 0.05,
-            targetOpacity: 0.03,
+            opacity: 0.04 + Math.random() * 0.06,
+            targetOpacity: 0.05,
             speed: 0.002,
-            baseOpacity: 0.03,
+            baseOpacity: 0.03 + Math.random() * 0.05,
+            blinkChance: 0.012,
           })
         }
       }
     }
 
-    const drawDots = () => {
+    const draw = () => {
       ctx.clearRect(0, 0, width, height)
 
-      for (const dot of dots) {
-        if (Math.abs(dot.opacity - dot.targetOpacity) < 0.01) {
-          if (Math.random() > 0.99) {
-            dot.targetOpacity = 0.3 + Math.random() * 0.4
-            dot.speed = 0.01 + Math.random() * 0.02
+      for (const sq of squares) {
+        if (Math.abs(sq.opacity - sq.targetOpacity) < 0.006) {
+          if (Math.random() < sq.blinkChance) {
+            sq.targetOpacity = 0.25 + Math.random() * 0.45
+            sq.speed = 0.012 + Math.random() * 0.018
           } else {
-            dot.targetOpacity = dot.baseOpacity + Math.random() * 0.02
-            dot.speed = 0.002 + Math.random() * 0.003
+            sq.targetOpacity = sq.baseOpacity + (Math.random() - 0.5) * 0.03
+            sq.speed = 0.0015 + Math.random() * 0.002
           }
         }
 
-        if (dot.opacity < dot.targetOpacity) dot.opacity += dot.speed
-        else dot.opacity -= dot.speed
+        if (sq.opacity < sq.targetOpacity) sq.opacity = Math.min(sq.targetOpacity, sq.opacity + sq.speed)
+        else sq.opacity = Math.max(sq.targetOpacity, sq.opacity - sq.speed * 0.6)
 
-        ctx.fillStyle = `rgba(255, 255, 255, ${dot.opacity})`
-        ctx.beginPath()
-        ctx.arc(dot.x, dot.y, 1, 0, Math.PI * 2)
-        ctx.fill()
+        const fadeY = Math.max(0, 1 - sq.y / (height * 0.5))
+        const alpha = Math.min(1, sq.opacity * fadeY)
+        const isLight = document.documentElement.classList.contains('dark') === false
+        ctx.fillStyle = isLight ? `rgba(0, 0, 0, ${alpha * 0.4})` : `rgba(255, 255, 255, ${alpha})`
+        ctx.fillRect(sq.x, sq.y, squareSize, squareSize)
       }
 
-      rafRef.current = requestAnimationFrame(drawDots)
+      rafRef.current = requestAnimationFrame(draw)
     }
 
     initCanvas()
-    drawDots()
+    draw()
 
     const onResize = () => initCanvas()
     window.addEventListener('resize', onResize)
@@ -79,10 +85,36 @@ export default function BackgroundCanvas() {
     }
   }, [])
 
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollY = window.scrollY
+      const fadeStart = 0
+      const fadeEnd = 500
+      const opacity = Math.min(1, Math.max(0, (scrollY - fadeStart) / fadeEnd))
+      setScrollOpacity(opacity)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <div className="fixed inset-0 w-full h-screen pointer-events-none z-0 [mask-image:radial-gradient(100%_100%_at_50%_0%,black_10%,transparent_100%)] -webkit-[mask-image:radial-gradient(100%_100%_at_50%_0%,black_10%,transparent_100%)]">
-      <canvas ref={canvasRef} className="w-full h-full" />
-    </div>
+    <>
+      <div
+        className="fixed inset-0 w-full h-screen pointer-events-none z-0"
+        style={{
+          maskImage: 'linear-gradient(to bottom, black 0%, black 35%, transparent 70%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 35%, transparent 70%)',
+        }}
+      >
+        <canvas ref={canvasRef} className="w-full h-full" />
+      </div>
+      <div
+        className="fixed inset-0 w-full min-h-screen pointer-events-none z-[1] bg-white dark:bg-[#050505] transition-opacity duration-300"
+        style={{ opacity: scrollOpacity }}
+        aria-hidden="true"
+      />
+    </>
   )
 }
 

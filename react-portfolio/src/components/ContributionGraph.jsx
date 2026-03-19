@@ -1,72 +1,36 @@
-import { useMemo } from 'react'
-
-const MONTHS = ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar']
-
-const COLORS = [
-  'bg-white/[0.02] border border-white/5',
-  'bg-white/[0.02] border border-white/5',
-  'bg-white/[0.02] border border-white/5',
-  'bg-neutral-800',
-  'bg-neutral-600',
-  'bg-neutral-400',
-  'bg-neutral-200',
+const CARDS = [
+  {
+    src: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=300&fit=crop',
+    alt: 'Project 1',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
+    alt: 'Project 2',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop',
+    alt: 'Project 3',
+  },
 ]
 
-function randomColorIdx() {
-  const rand = Math.random()
-  let colorIdx = 0
-  if (rand > 0.6) colorIdx = 3
-  if (rand > 0.8) colorIdx = 4
-  if (rand > 0.9) colorIdx = 5
-  if (rand > 0.95) colorIdx = 6
-  return colorIdx
-}
-
 export default function ContributionGraph() {
-  const grid = useMemo(() => {
-    const cols = 52
-    const rows = 7
-    return Array.from({ length: cols }, () =>
-      Array.from({ length: rows }, () => randomColorIdx()),
-    )
-  }, [])
-
   return (
     <section className="flex flex-col gap-3 w-full overflow-hidden">
-      <div className="flex justify-between text-base text-neutral-500 px-1 font-normal">
-        {MONTHS.map((m) => (
-          <span key={m}>{m}</span>
+      <div className="grid grid-cols-3 gap-4">
+        {CARDS.map((card) => (
+          <a
+            key={card.alt}
+            href="#"
+            className="block overflow-hidden rounded-xl border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.02] transition-transform duration-300 hover:scale-105"
+          >
+            <img
+              src={card.src}
+              alt={card.alt}
+              className="w-full h-28 object-cover"
+            />
+          </a>
         ))}
-      </div>
-
-      <div className="flex gap-[3px] overflow-x-auto pb-2 scrollbar-hide">
-        <div className="flex gap-[3px]">
-          {grid.map((col, colIdx) => (
-            <div key={colIdx} className="grid grid-rows-7 gap-[3px]">
-              {col.map((colorIdx, rowIdx) => (
-                <div
-                  key={rowIdx}
-                  className={`w-[11px] h-[11px] ${COLORS[colorIdx]} rounded-[2px]`}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between text-base text-neutral-500 mt-1 font-normal">
-        <span>514 contributions in the last year</span>
-        <div className="flex items-center gap-2">
-          <span>Less</span>
-          <div className="w-3.5 h-3.5 bg-white/[0.03] border border-white/5 rounded-[3px]" />
-          <div className="w-3.5 h-3.5 bg-neutral-800 rounded-[3px]" />
-          <div className="w-3.5 h-3.5 bg-neutral-600 rounded-[3px]" />
-          <div className="w-3.5 h-3.5 bg-neutral-400 rounded-[3px]" />
-          <div className="w-3.5 h-3.5 bg-neutral-200 rounded-[3px]" />
-          <span>More</span>
-        </div>
       </div>
     </section>
   )
 }
-
