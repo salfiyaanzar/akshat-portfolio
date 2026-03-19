@@ -18,7 +18,7 @@ const PROJECTS = [
     title: 'Lightweight image encryptor',
     description:
       'Secure image encryption tool supporting naïve encryption over SMTP/POP3, optimized for low-end systems achieving sub-2s processing time per image.',
-    href: '#',
+    href: 'https://github.com/AkshatNigam12/Lightweight-functional-based-image-encryptor',
   },
 ]
 
@@ -35,8 +35,10 @@ export default function Projects() {
           <a
             key={p.title}
             href={p.href}
+            target={p.href.startsWith('http') ? '_blank' : undefined}
+            rel={p.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             className={[
-              'group flex flex-col gap-2 p-5 rounded-xl bg-neutral-50 dark:bg-white/[0.02] backdrop-blur-md border border-neutral-200 dark:border-white/10 shadow-lg hover:bg-neutral-100 dark:hover:bg-white/[0.04] hover:border-neutral-300 dark:hover:border-white/20 transition-all duration-300',
+              'group flex flex-col gap-2 p-5 rounded-xl bg-neutral-50 dark:bg-white/[0.02] backdrop-blur-md border-[1.5px] dark:border border-neutral-200 dark:border-white/10 shadow-lg hover:bg-neutral-100 dark:hover:bg-white/[0.04] hover:border-neutral-300 dark:hover:border-white/20 transition-all duration-300',
               p.wide ? 'sm:col-span-2' : '',
             ].join(' ')}
           >

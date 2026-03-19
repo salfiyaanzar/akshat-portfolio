@@ -21,7 +21,7 @@ export default function ContributionGraph() {
           <a
             key={card.alt}
             href="#"
-            className="block overflow-hidden rounded-xl border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.02] transition-transform duration-300 hover:scale-105"
+            className="block overflow-hidden rounded-xl border-[1.5px] dark:border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.02] transition-transform duration-300 hover:scale-105"
           >
             <img
               src={card.src}

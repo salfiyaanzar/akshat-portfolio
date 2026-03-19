@@ -23,7 +23,7 @@ import {
 
 function SkillPill({ icon: Icon, label }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-sm font-normal border border-neutral-200 dark:border-white/10 bg-neutral-100 dark:bg-white/[0.04] rounded-lg text-neutral-700 dark:text-neutral-300">
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-sm font-normal border-[1.5px] dark:border border-neutral-200 dark:border-white/10 bg-neutral-100 dark:bg-white/[0.04] rounded-lg text-neutral-700 dark:text-neutral-300">
       <Icon className="w-3.5 h-3.5 text-neutral-500" strokeWidth={1.5} />
       {label}
     </span>
@@ -32,7 +32,7 @@ function SkillPill({ icon: Icon, label }) {
 
 function SkillCard({ title, children }) {
   return (
-    <div className="flex flex-row flex-wrap items-center gap-x-3 gap-y-2 p-3.5 rounded-xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg min-w-0">
+    <div className="flex flex-row flex-wrap items-center gap-x-3 gap-y-2 p-3.5 rounded-xl bg-white/[0.02] backdrop-blur-md border-[1.5px] dark:border border-neutral-200 dark:border-white/10 shadow-lg min-w-0">
       <h3 className="text-sm font-normal text-neutral-500 uppercase tracking-wider whitespace-nowrap shrink-0">
         {title}
       </h3>

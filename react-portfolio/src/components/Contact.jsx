@@ -16,7 +16,7 @@ export default function Contact() {
             </label>
             <input
               type="text"
-              className="w-full bg-neutral-50 dark:bg-white/[0.02] border border-neutral-200 dark:border-white/10 shadow-lg rounded-xl px-5 py-3 text-lg text-neutral-900 dark:text-white focus:outline-none focus:border-neutral-400 dark:focus:border-white/20 focus:bg-neutral-100 dark:focus:bg-white/[0.04] transition-all placeholder:text-neutral-400 dark:placeholder:text-neutral-600 font-normal"
+              className="w-full bg-neutral-50 dark:bg-white/[0.02] border-[1.5px] dark:border border-neutral-200 dark:border-white/10 shadow-lg rounded-xl px-5 py-3 text-lg text-neutral-900 dark:text-white focus:outline-none focus:border-neutral-400 dark:focus:border-white/20 focus:bg-neutral-100 dark:focus:bg-white/[0.04] transition-all placeholder:text-neutral-400 dark:placeholder:text-neutral-600 font-normal"
               placeholder="John Doe"
             />
           </div>
@@ -26,7 +26,7 @@ export default function Contact() {
             </label>
             <input
               type="email"
-              className="w-full bg-neutral-50 dark:bg-white/[0.02] border border-neutral-200 dark:border-white/10 shadow-lg rounded-xl px-5 py-3 text-lg text-neutral-900 dark:text-white focus:outline-none focus:border-neutral-400 dark:focus:border-white/20 focus:bg-neutral-100 dark:focus:bg-white/[0.04] transition-all placeholder:text-neutral-400 dark:placeholder:text-neutral-600 font-normal"
+              className="w-full bg-neutral-50 dark:bg-white/[0.02] border-[1.5px] dark:border border-neutral-200 dark:border-white/10 shadow-lg rounded-xl px-5 py-3 text-lg text-neutral-900 dark:text-white focus:outline-none focus:border-neutral-400 dark:focus:border-white/20 focus:bg-neutral-100 dark:focus:bg-white/[0.04] transition-all placeholder:text-neutral-400 dark:placeholder:text-neutral-600 font-normal"
               placeholder="john@example.com"
             />
           </div>
@@ -38,7 +38,7 @@ export default function Contact() {
           </label>
           <textarea
             rows={4}
-            className="w-full bg-neutral-50 dark:bg-white/[0.02] border border-neutral-200 dark:border-white/10 shadow-lg rounded-xl px-5 py-3 text-lg text-neutral-900 dark:text-white focus:outline-none focus:border-neutral-400 dark:focus:border-white/20 focus:bg-neutral-100 dark:focus:bg-white/[0.04] transition-all placeholder:text-neutral-400 dark:placeholder:text-neutral-600 resize-none font-normal"
+            className="w-full bg-neutral-50 dark:bg-white/[0.02] border-[1.5px] dark:border border-neutral-200 dark:border-white/10 shadow-lg rounded-xl px-5 py-3 text-lg text-neutral-900 dark:text-white focus:outline-none focus:border-neutral-400 dark:focus:border-white/20 focus:bg-neutral-100 dark:focus:bg-white/[0.04] transition-all placeholder:text-neutral-400 dark:placeholder:text-neutral-600 resize-none font-normal"
             placeholder="How can I help you?"
           />
         </div>

@@ -42,7 +42,7 @@ export default function Experience() {
               </div>
 
               <div className={`flex-1 ${isLast ? 'pb-0' : 'pb-6'}`}>
-                <div className="flex flex-col gap-3 p-5 rounded-xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/[0.04] transition-colors">
+                <div className="flex flex-col gap-3 p-5 rounded-xl bg-white/[0.02] backdrop-blur-md border-[1.5px] dark:border border-neutral-200 dark:border-white/10 shadow-lg hover:bg-white/[0.04] transition-colors">
                   <div className="flex flex-col gap-1">
                     <h3 className="text-lg font-normal text-neutral-900 dark:text-white tracking-tight">
                       {item.role}
