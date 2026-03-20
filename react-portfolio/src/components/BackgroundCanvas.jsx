@@ -66,7 +66,7 @@ export default function BackgroundCanvas() {
         const fadeY = Math.max(0, 1 - sq.y / (height * 0.5))
         const alpha = Math.min(1, sq.opacity * fadeY)
         const isLight = document.documentElement.classList.contains('dark') === false
-        ctx.fillStyle = isLight ? `rgba(0, 0, 0, ${alpha * 0.4})` : `rgba(255, 255, 255, ${alpha})`
+        ctx.fillStyle = isLight ? `rgba(0, 0, 0, ${alpha * 0.75})` : `rgba(255, 255, 255, ${alpha})`
         ctx.fillRect(sq.x, sq.y, squareSize, squareSize)
       }
 
