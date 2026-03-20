@@ -7,7 +7,7 @@ export default function TopNav() {
   return (
     <nav className="fixed top-6 z-50 flex items-center gap-8 px-7 py-3 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-xl border border-neutral-200 dark:border-white/10 shadow-2xl rounded-full">
       <a
-        href="#"
+        href="#hero"
         aria-label="Home"
         className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors flex items-center"
       >

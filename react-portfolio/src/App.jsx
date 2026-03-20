@@ -14,7 +14,7 @@ export default function App() {
       <BackgroundCanvas />
       <TopNav />
 
-      <section className="z-10 w-full max-w-[700px] px-5 pt-24 flex flex-col items-center gap-6">
+      <section id="hero" className="z-10 w-full max-w-[700px] px-5 pt-24 flex flex-col items-center gap-6">
         <Hero />
         <ContributionGraph />
       </section>

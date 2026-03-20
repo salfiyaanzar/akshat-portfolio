@@ -1,16 +1,7 @@
 const CARDS = [
-  {
-    src: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=300&fit=crop',
-    alt: 'Project 1',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
-    alt: 'Project 2',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop',
-    alt: 'Project 3',
-  },
+  { src: '/imgleft.jpeg', alt: 'Project 1' },
+  { src: '/imgmid.jpeg', alt: 'Project 2' },
+  { src: '/imgright.jpeg', alt: 'Project 3' },
 ]
 
 export default function ContributionGraph() {
