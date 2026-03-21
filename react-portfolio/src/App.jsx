@@ -4,6 +4,7 @@ import ContributionGraph from './components/ContributionGraph.jsx'
 import Education from './components/Education.jsx'
 import Experience from './components/Experience.jsx'
 import Hero from './components/Hero.jsx'
+import Hobbies from './components/Hobbies.jsx'
 import Projects from './components/Projects.jsx'
 import Skills from './components/Skills.jsx'
 import TopNav from './components/TopNav.jsx'
@@ -25,6 +26,7 @@ export default function App() {
         <Experience />
         <Education />
         <Skills />
+        <Hobbies />
         <hr className="border-neutral-200 dark:border-white/10 mt-2" />
         <Contact />
       </main>
