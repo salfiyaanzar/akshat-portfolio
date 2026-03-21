@@ -1,26 +1,10 @@
 import { Heart } from 'lucide-react'
 
 const HOBBIES = [
-  {
-    label: 'Gaming',
-    src: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=200&h=120&fit=crop',
-    alt: 'Gaming',
-  },
-  {
-    label: 'Anime',
-    src: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=200&h=120&fit=crop',
-    alt: 'Anime',
-  },
-  {
-    label: 'Music (Coke Studio)',
-    src: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=200&h=120&fit=crop',
-    alt: 'Music',
-  },
-  {
-    label: 'Gym',
-    src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=200&h=120&fit=crop',
-    alt: 'Gym',
-  },
+  { label: 'Gaming', src: '/gaming.jpg', alt: 'Gaming' },
+  { label: 'Anime', src: '/anime.jpg', alt: 'Anime' },
+  { label: 'Music', src: '/music.jpg', alt: 'Music' },
+  { label: 'Gym', src: '/gym.jpg', alt: 'Gym' },
 ]
 
 export default function Hobbies() {
