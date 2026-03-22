@@ -7,7 +7,7 @@ const CARDS = [
 export default function ContributionGraph() {
   return (
     <section className="flex flex-col gap-3 w-full overflow-hidden">
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
         {CARDS.map((card) => (
           <a
             key={card.alt}
@@ -17,7 +17,7 @@ export default function ContributionGraph() {
             <img
               src={card.src}
               alt={card.alt}
-              className="w-full h-28 object-cover"
+              className="w-full h-24 sm:h-28 object-cover"
             />
           </a>
         ))}

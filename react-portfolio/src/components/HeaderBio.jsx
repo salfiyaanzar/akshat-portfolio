@@ -4,8 +4,8 @@ export default function HeaderBio() {
   return (
     <section className="flex flex-col gap-6">
       <div className="flex flex-col gap-5 relative">
-        <div className="flex items-center gap-5">
-          <div className="w-20 h-20 rounded-xl overflow-hidden border-2 border-neutral-800 dark:border-black bg-neutral-100 dark:bg-white/[0.03] backdrop-blur-md flex-shrink-0 shadow-[0_0_12px_rgba(0,0,0,0.08)] dark:shadow-[0_0_12px_rgba(255,253,248,0.2)] transition-transform duration-200 ease-out hover:rotate-6">
+        <div className="flex items-center gap-4 sm:gap-5">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border-2 border-neutral-800 dark:border-black bg-neutral-100 dark:bg-white/[0.03] backdrop-blur-md flex-shrink-0 shadow-[0_0_12px_rgba(0,0,0,0.08)] dark:shadow-[0_0_12px_rgba(255,253,248,0.2)] transition-transform duration-200 ease-out hover:rotate-6">
             <img
               src="/avatar.png"
               alt="Akshat Nigam"
@@ -14,7 +14,7 @@ export default function HeaderBio() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <h1 className="text-3xl font-medium tracking-tight text-neutral-900 dark:text-white flex items-center gap-2">
+            <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-neutral-900 dark:text-white flex items-center gap-2">
               Akshat Nigam
               <BadgeCheck className="w-6 h-6 text-blue-500" strokeWidth={1.5} />
             </h1>
@@ -38,7 +38,7 @@ export default function HeaderBio() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 right-0 flex items-center gap-5 text-neutral-600 dark:text-neutral-400">
+        <div className="absolute bottom-0 right-0 flex items-center gap-3 sm:gap-5 text-neutral-600 dark:text-neutral-400">
             <a
               href="https://github.com/AkshatNigam12"
               target="_blank"
@@ -87,7 +87,7 @@ export default function HeaderBio() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 text-neutral-600 dark:text-neutral-400 text-[1.05rem] leading-normal font-normal">
+      <div className="flex flex-col gap-4 text-neutral-600 dark:text-neutral-400 text-[0.95rem] sm:text-[1.05rem] leading-normal font-normal">
         <p>
         Hey, I'm Akshat, a cybersecurity analyst who enjoys securing systems, analyzing threats, and building resilient infrastructures where reliability, protection, and detail matter strongly. I focus on vulnerabilities and building solutions that are practical and secure.
         </p>

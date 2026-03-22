@@ -32,7 +32,7 @@ function SkillPill({ icon: Icon, label }) {
 
 function SkillCard({ title, children }) {
   return (
-    <div className="flex flex-row flex-wrap items-center gap-x-3 gap-y-2 p-3.5 rounded-xl bg-white/[0.02] backdrop-blur-md border-[1.5px] dark:border border-neutral-200 dark:border-white/10 shadow-lg min-w-0">
+    <div className="flex flex-row flex-wrap items-center gap-x-3 gap-y-2 p-3 sm:p-3.5 rounded-xl bg-neutral-50 dark:bg-white/[0.02] backdrop-blur-md border-[1.5px] dark:border border-neutral-200 dark:border-white/10 shadow-lg min-w-0">
       <h3 className="text-sm font-normal text-neutral-500 uppercase tracking-wider whitespace-nowrap shrink-0">
         {title}
       </h3>

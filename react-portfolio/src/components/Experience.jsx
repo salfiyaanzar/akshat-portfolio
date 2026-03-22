@@ -33,7 +33,7 @@ export default function Experience() {
         {EXPERIENCE.map((item, idx) => {
           const isLast = idx === EXPERIENCE.length - 1
           return (
-            <div key={`${item.org}-${idx}`} className="flex gap-5 group">
+            <div key={`${item.org}-${idx}`} className="flex gap-3 sm:gap-5 group">
               <div className="relative flex flex-col items-center pt-2">
                 <div className="w-3 h-3 bg-neutral-400 rounded-full z-10 ring-2 ring-[#050505] outline outline-1 outline-white/10" />
                 {!isLast ? (
@@ -42,7 +42,7 @@ export default function Experience() {
               </div>
 
               <div className={`flex-1 ${isLast ? 'pb-0' : 'pb-6'}`}>
-                <div className="flex flex-col gap-3 p-5 rounded-xl bg-white/[0.02] backdrop-blur-md border-[1.5px] dark:border border-neutral-200 dark:border-white/10 shadow-lg hover:bg-white/[0.04] transition-colors">
+                <div className="flex flex-col gap-3 p-4 sm:p-5 rounded-xl bg-neutral-50 dark:bg-white/[0.02] backdrop-blur-md border-[1.5px] dark:border border-neutral-200 dark:border-white/10 shadow-lg hover:bg-neutral-100 dark:hover:bg-white/[0.04] transition-colors">
                   <div className="flex flex-col gap-1">
                     <h3 className="text-lg font-normal text-neutral-900 dark:text-white tracking-tight">
                       {item.role}
@@ -52,7 +52,7 @@ export default function Experience() {
                     </p>
                   </div>
 
-                  <ul className="flex flex-col gap-2 text-base text-neutral-600 dark:text-neutral-400 mt-1 font-normal">
+                  <ul className="flex flex-col gap-2 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mt-1 font-normal">
                     {item.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-3">
                         <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-neutral-600 flex-shrink-0" />

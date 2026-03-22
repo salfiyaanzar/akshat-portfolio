@@ -20,12 +20,12 @@ export default function Hobbies() {
           {[...HOBBIES, ...HOBBIES].map((hobby, i) => (
             <div
               key={`${hobby.label}-${i}`}
-              className="flex-shrink-0 w-32 rounded-lg overflow-hidden border-[1.5px] dark:border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.02] backdrop-blur-md shadow-lg"
+              className="flex-shrink-0 w-28 sm:w-32 rounded-lg overflow-hidden border-[1.5px] dark:border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.02] backdrop-blur-md shadow-lg"
             >
               <p className="px-3 py-2 text-sm font-medium text-neutral-900 dark:text-white text-center truncate">
                 {hobby.label}
               </p>
-              <div className="h-20 w-full overflow-hidden">
+              <div className="h-16 sm:h-20 w-full overflow-hidden">
                 <img
                   src={hobby.src}
                   alt={hobby.alt}
